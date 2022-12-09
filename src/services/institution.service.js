@@ -7,12 +7,27 @@ const api = axios.create({
     baseURL: URL,
 });
 
-const authApi = axios.create({
-    baseURL: URL,
-    headers: authHeader(),
-});
-
 export const getInstitutions = async () => {
-    const res = await authApi.get(`/institutions`);
+    const res = await api.get(`/institutions`, {headers: authHeader()});
+    return res.data;
+};
+
+export const getInstitution = async (institutionId) => {
+    const res = await api.get(`/institutions/${institutionId}`, {headers: authHeader()});
+    return res.data;
+};
+
+export const addInstitution = async (name, adress) => {
+    const res = await api.post(`/institutions`, {name, adress}, {headers: authHeader()});
+    return res.data;
+};
+
+export const updateInstitution = async (institutionId, name, adress) => {
+    const res = await api.put(`/institutions/${institutionId}`, {name, adress}, {headers: authHeader()});
+    return res.data;
+};
+
+export const deleteInstitution = async (institutionId) => {
+    const res = await api.delete(`/institutions/${institutionId}`, {headers: authHeader()});
     return res.data;
 };

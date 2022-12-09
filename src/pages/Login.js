@@ -1,25 +1,32 @@
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import { login } from "../services/auth.service";
-import { setUserData } from "../services/auth.storage";
-import { setAuthToken } from "../services/authTest";
 
 const Login = () => {
 
+  const navigate = useNavigate();
+
   const onSubmitHandler = (event) => {
+
+    event.preventDefault();
 
     const username = event.target.username.value;
     const password = event.target.password.value;
 
     login(username, password).then((res) => {
-      localStorage.setItem("token", res.data.accessToken);
-      setAuthToken(res.data.accessToken);
-      //setUserData(res.accessToken, res.refreshToken);
+
+      const decoded = jwt_decode(res.accessToken);
+      const user = { ...decoded, }
+
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", res.accessToken);
+      navigate('/');
     });
 
   };
 
   return (
     <>
-    {localStorage.getItem("user")}
     <h1>Login</h1>
     <div>
       <form onSubmit={onSubmitHandler}>

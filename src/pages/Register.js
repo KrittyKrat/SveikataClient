@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { register } from "../services/auth.service";
 
 const Register = () => {
+
+    const navigate = useNavigate();
 
     const onSubmitHandler = (event) =>{
 
@@ -10,7 +13,9 @@ const Register = () => {
         const password = event.target.password.value;
         const role = event.target.role.value;
 
-        register(username, password, role);
+        register(username, password, role).then((res) => {
+            navigate("/login");
+        });
     };
 
   return (
