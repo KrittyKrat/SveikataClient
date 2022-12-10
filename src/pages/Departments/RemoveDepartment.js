@@ -11,6 +11,10 @@ const RemoveDepartment = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+
         getDepartment(institutionId, departmentId).then((res) => {
             setName(res.name);
             setDescription(res.description);

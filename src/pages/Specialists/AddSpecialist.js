@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addSpecialist } from '../../services/specialist.service';
 
@@ -21,6 +22,13 @@ const AddSpecialist = () => {
             navigate(`/institutions/${institutionId}/departments/${departmentId}/specialists`);
         });
     }
+
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+    })
+
 
   return (
     <>

@@ -14,6 +14,9 @@ import Specialists from './pages/Specialists/Specialists';
 import AddSpecialist from './pages/Specialists/AddSpecialist';
 import EditSpecialist from './pages/Specialists/EditSpecialist';
 import RemoveSpecialist from './pages/Specialists/RemoveSpecialist';
+import Visits from './pages/Visits/Visits';
+import UserVisits from './pages/Visits/UserVisits';
+import EditVisit from './pages/Visits/EditVisit';
 
 function App() {
   return (
@@ -22,6 +25,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/visits" element={<Visits />} />
+        <Route path="/users/:userId/visits" element={<UserVisits />} />
+        <Route path="/users/:userId/editVisit/:visitId" element={<EditVisit />} />
 
         <Route path="/institutions" element={<Institutions />} />
         <Route path="/addInstitution" element={<AddInstitution />} />

@@ -17,6 +17,11 @@ export const getSpecialist = async (institutionId, departmentId, specialistId) =
     return res.data;
 };
 
+export const getOneSpecialist = async (specialistId) => {
+    const res = await api.get(`/specialists/${specialistId}`, {headers: authHeader()});
+    return res.data;
+};
+
 export const addSpecialist = async (institutionId, departmentId, name, surname, age) => {
     const res = await api.post(`/institutions/${institutionId}/departments/${departmentId}/specialists`, {name, surname, age}, {headers: authHeader()});
     return res.data;

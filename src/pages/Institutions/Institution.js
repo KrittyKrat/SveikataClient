@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Institution = (props) => {
 
+  let role = "None";
+  const userTemp = localStorage.getItem("user");
+  if(userTemp) role = JSON.parse(userTemp).role;
+
   var navigate = useNavigate();
 
   const onViewDepartmentsHandler = (event) => {
@@ -23,9 +27,13 @@ const Institution = (props) => {
         <h2>{props.name}</h2>
         <h3>{props.adress}</h3>
         <p></p>
+        {role === "Admin" &&
+          <React.Fragment>
+            <button onClick={onEditHandler}>Edit</button>
+            <button onClick={onRemoveHandler}>Remove</button>
+          </React.Fragment>
+        }
         <button onClick={onViewDepartmentsHandler}>View Departments</button>
-        <button onClick={onEditHandler}>Edit</button>
-        <button onClick={onRemoveHandler}>Remove</button>
         <br /><br />
     </div>
   )

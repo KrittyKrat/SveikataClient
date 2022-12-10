@@ -11,6 +11,11 @@ const RemoveInstitution = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+
         getInstitution(institutionId).then((res) => {
             setName(res.name);
             setAdress(res.adress);

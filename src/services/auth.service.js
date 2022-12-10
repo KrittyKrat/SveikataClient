@@ -7,6 +7,11 @@ const api = axios.create({
     baseURL: URL,
 });
 
+export const getUser = async (userId) => {
+  const res = await api.get(`/users/${userId}`, {headers: authHeader()});
+  return res.data;
+};
+
 export const login = async (username, password) => {
   const res = await api.post('/tokens/login', {username, password});
   return res.data;

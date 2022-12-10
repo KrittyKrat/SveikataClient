@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addInstitution } from '../../services/institution.service'
 
@@ -19,6 +20,12 @@ const AddInstitution = () => {
             navigate("/institutions");
         });
     }
+
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+    })
 
   return (
     <>

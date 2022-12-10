@@ -10,6 +10,11 @@ const EditInstitution = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+
         getInstitution(institutionId).then((res) => {
             nameRef.current.value = res.name;
             adressRef.current.value = res.adress;

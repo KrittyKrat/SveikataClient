@@ -12,6 +12,10 @@ const RemoveSpecialist = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+        
         getSpecialist(institutionId, departmentId, specialistId).then((res) => {
             setName(res.name);
             setSurname(res.surname);

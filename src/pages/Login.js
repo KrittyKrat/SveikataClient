@@ -6,6 +6,10 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const onBackHandler = () =>{
+    navigate("/");
+  }
+
   const onSubmitHandler = (event) => {
 
     event.preventDefault();
@@ -39,7 +43,8 @@ const Login = () => {
           <input type="text" id="password" required/>
         </div>
         <div>
-          <button type="submit">Register</button>
+          <button type="submit">Login</button>
+          <button onClick={onBackHandler}>Back</button>
         </div>
       </form>
     </div>

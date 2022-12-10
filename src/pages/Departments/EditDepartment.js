@@ -10,10 +10,13 @@ const EditDepartment = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const user = localStorage.getItem("user");
+        if(!user) navigate("/");
+        else { const userData = JSON.parse(user); if(userData.role !== "Admin") navigate("/");}
+
         getDepartment(institutionId, departmentId).then((res) => {
             nameRef.current.value = res.name;
             descriptionRef.current.value = res.description;
-            console.log(descriptionRef);
         })
     })
 

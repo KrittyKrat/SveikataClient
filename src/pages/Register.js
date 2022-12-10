@@ -5,6 +5,10 @@ const Register = () => {
 
     const navigate = useNavigate();
 
+    const onBackHandler = () =>{
+        navigate("/");
+    }
+
     const onSubmitHandler = (event) =>{
 
         event.preventDefault();
@@ -33,10 +37,14 @@ const Register = () => {
             </div>
             <div>
                 <label htmlFor="role">Role</label>
-                <input type="text" id="role" required/>
+                <select name="role" id="role">
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
             </div>
             <div>
                 <button type="submit">Register</button>
+                <button onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>

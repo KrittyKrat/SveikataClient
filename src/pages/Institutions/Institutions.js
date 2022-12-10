@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Institutions = () => {
   
+  let role = "None";
+  const userTemp = localStorage.getItem("user");
+  if(userTemp) role = JSON.parse(userTemp).role;
+
   const [institutions, setInstitutions] = useState();
   const navigate = useNavigate();
 
@@ -12,16 +16,24 @@ const Institutions = () => {
     navigate("/addInstitution");
   }
 
+  const onBackHandler = () => {
+    navigate("/");
+  }
+
   useEffect(() => {
+    const user = localStorage.getItem("user");
+    if(!user) navigate("/");
+
     getInstitutions().then((res) => {
       setInstitutions(res);
     })
-  }, [])
+  }, [navigate])
 
   return (
     <div>
       {institutions?.map((inst) => <Institution id={inst._id} key={inst._id} name={inst.name} adress={inst.adress}/>)}
-      <button onClick={onAddHandler}>Add Institution</button>
+      {role === "Admin" && <React.Fragment><button onClick={onAddHandler}>Add Institution</button></React.Fragment>}
+      <button onClick={onBackHandler}>Back</button>
     </div>
   )
 }
