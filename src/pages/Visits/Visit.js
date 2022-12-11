@@ -10,7 +10,6 @@ import classes from "../HomePage.module.css";
 const Visit = (props) => {
 
   var navigate = useNavigate();
-  var modal = document.getElementById("myModal");
   const [specialistName, setSpecialist] = useState('');
   const [username, setUsername] = useState('');
 
@@ -29,10 +28,6 @@ const Visit = (props) => {
     })
   }
 
-  const toggleModal = (event) => {
-    modal.style.display = "block";
-  }
-
     useEffect(() => {
         getOneSpecialist(props.specialistID).then((res) => {
             setSpecialist(res.name + " " + res.surname);
@@ -45,7 +40,6 @@ const Visit = (props) => {
   return (
     <>
     <div class="overlay hidden"></div>
-    <button class="btn btn-open">Open Modal</button>
     <div className={classes.list}>
         <div className={classes.second}>
           <h2>{specialistName}</h2>
@@ -55,7 +49,7 @@ const Visit = (props) => {
           <p>{props.description}</p>
         </div>
         <button className={classes.button} onClick={onEditHandler}>Edit</button>
-        <button id="myModal" className={classes.button} onClick={toggleModal}>Remove</button>
+        <button className={classes.button} onClick={onRemoveHandler}>Remove</button>
         <br />
     </div>
     </>
