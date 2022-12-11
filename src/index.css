@@ -8,6 +8,8 @@
 
 body {
   font-family: 'Fira Sans Condensed', sans-serif;
+  background-image: url("./assets/back.svg");
+  background-size:cover
 }
 
 .container {

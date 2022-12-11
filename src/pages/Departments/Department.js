@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import classes from "../HomePage.module.css";
 
 const Department = (props) => {
 
@@ -23,19 +24,19 @@ const Department = (props) => {
     }
 
     return (
-        <div>
-            <p>{props.id}</p>
-            <h2>{props.name}</h2>
-            <h3>{props.description}</h3>
-            <p></p>
+        <div className={classes.list}>
+            <div className={classes.second}>
+                <h2>{props.name}</h2>
+                <h3>{props.description}</h3>
+            </div>
+            <button className={classes.button} onClick={onViewSpecialstsHandler}>View Specialists</button>
             {role === "Admin" &&
                 <React.Fragment>
-                    <button onClick={onEditHandler}>Edit</button>
-                    <button onClick={onRemoveHandler}>Remove</button>
+                    <button className={classes.button} onClick={onEditHandler}>Edit</button>
+                    <button className={classes.button} onClick={onRemoveHandler}>Remove</button>
                 </React.Fragment>
             }
-            <button onClick={onViewSpecialstsHandler}>View Specialists</button>
-            <br /><br />
+            <br />
         </div>
     )
 }

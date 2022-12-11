@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { getVisits } from '../../services/visits.service';
 import Visit from './Visit';
+import classes from "../HomePage.module.css";
 
 const Visits = () => {
   
@@ -25,7 +26,12 @@ const Visits = () => {
     return (
         <div>
         {visits?.map((vis) => <Visit id={vis._id} key={vis._id} description={vis.description} specialistID={vis.specialistID} userID={vis.userID}/>)}
-        <button onClick={onBackHandler}>Back</button>
+        <div className={classes.main}>
+            <div className={classes.second}>
+                <h3>This is an Admin only area, if you are not please locate the nearest exit.</h3>
+            </div>
+            <button className={classes.button} onClick={onBackHandler}>Back</button>
+        </div>
         </div>
     )
 }

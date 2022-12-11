@@ -1,58 +1,29 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import classes from "./HomePage.module.css";
 
 const HomePage = () => {
 
   let role = "None";
-  const navigate = useNavigate();
   const userTemp = localStorage.getItem("user");
   if(userTemp) role = JSON.parse(userTemp).role;
 
-  const onLoginHandler = () =>{
-    navigate(`/login`);
-  }
-
-  const onRegisterHandler = () =>{
-    navigate(`/register`);
-  }
-
-  const onLogoutHandler = () =>{
-
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    navigate(`/`);
-  }
-
-  const onInstitutionsHandler = () =>{
-    navigate(`/institutions`);
-  }
-
-  const onVisitsHandler = () =>{
-    navigate(`/visits`);
-  }
-
-  const onUserVisitsHandler = () =>{
-    const user = JSON.parse(localStorage.getItem("user"));
-    navigate(`/users/${user.id}/visits`);
-  }
-
   return (
-    <div>
-      <h1>Home</h1>
-      {role === "None" &&
-        <React.Fragment>
-          <button onClick={onLoginHandler}>Login</button>
-          <button onClick={onRegisterHandler}>Register</button>
-        </React.Fragment>
-      }
-      {role !== "None" && 
-        <React.Fragment>
-          <button onClick={onLogoutHandler}>Logout</button>
-          <button onClick={onInstitutionsHandler}>Institutions</button>
-          <button onClick={onUserVisitsHandler}>My Visits</button>
-        </React.Fragment>
-      }
-      {role === "Admin" && <React.Fragment><button onClick={onVisitsHandler}>All Visits</button></React.Fragment>}
+    <div className={classes.main}>
+      <h1>TopGSveikata</h1>
+      <br />
+      {role !== "None" && (
+        <>
+          <img className={classes.icon} src="https://thumbs.dreamstime.com/b/professional-young-team-group-doctors-38070132.jpg" alt='RIP'/>
+          <div className={classes.second}>
+            <h4>You have entered the health system zone. From here you may continue further into the abyss that is this website and click the Instituion button. Then after having selected your desired institution and sector, select a speacialist and finally arrange a visit. Very nice. You can manage your visits in the Visits tab. And thats about it. Logout when you had enough of this disaster.</h4>
+          </div>
+        </>
+      )}
+      {role === "None" && (
+        <>
+          <h3>Login or make an account to see this awesomeness</h3>
+        </>
+      )}
     </div>
   )
 }

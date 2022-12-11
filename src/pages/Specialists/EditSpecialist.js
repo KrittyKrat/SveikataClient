@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getSpecialist, updateSpecialist } from '../../services/specialist.service';
+import classes from "../HomePage.module.css";
 
 const EditSpecialist = (props) => {
 
@@ -39,8 +40,7 @@ const EditSpecialist = (props) => {
     }
 
   return (
-    <>
-    <div>
+    <div className={classes.main}>
         <h1>Edit Specialist</h1>
         <form onSubmit={onSubmitHandler}>
             <div>
@@ -56,12 +56,11 @@ const EditSpecialist = (props) => {
                 <input ref={ageRef} type="number" id="age" required />
             </div>
             <div>
-                <button type="submit">Done</button>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type="submit">Done</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>
-    </>
   )
 }
 

@@ -17,10 +17,12 @@ import RemoveSpecialist from './pages/Specialists/RemoveSpecialist';
 import Visits from './pages/Visits/Visits';
 import UserVisits from './pages/Visits/UserVisits';
 import EditVisit from './pages/Visits/EditVisit';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
     <>
+    <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
@@ -46,6 +48,7 @@ function App() {
         <Route path="/institutions/:institutionId/departments/:departmentId/removeSpecialist/:specialistId" element={<RemoveSpecialist />} />
 
       </Routes>
+    </Layout>
     </>
   );
 }

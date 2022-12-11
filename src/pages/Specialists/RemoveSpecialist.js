@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { deleteSpecialist, getSpecialist } from '../../services/specialist.service';
+import classes from "../HomePage.module.css";
 
 const RemoveSpecialist = (props) => {
 
@@ -37,16 +38,17 @@ const RemoveSpecialist = (props) => {
 
   return (
     <>
-    <div>
+    <div className={classes.main}>
         <h1>Remove Specialist</h1>
+        <br />
         <form onSubmit={onSubmitHandler}>
-            <h2>{name} {surname}</h2>
-            <h3>{age}</h3>
-            <div>
-                <button type='submit'>Remove</button>
+            <div className={classes.second}>
+                <h2>{name} {surname}</h2>
+                <h3>{age}</h3>
             </div>
             <div>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type='submit'>Remove</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>

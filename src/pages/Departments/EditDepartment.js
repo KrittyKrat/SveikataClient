@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getDepartment, updateDepartment } from '../../services/department.service';
+import classes from "../HomePage.module.css";
 
 const EditDepartment = (props) => {
 
@@ -37,7 +38,7 @@ const EditDepartment = (props) => {
 
   return (
     <>
-    <div>
+    <div className={classes.main}>
         <h1>Edit Department</h1>
         <form onSubmit={onSubmitHandler}>
             <div>
@@ -49,8 +50,8 @@ const EditDepartment = (props) => {
                 <input ref={descriptionRef} type="text" id="description" required />
             </div>
             <div>
-                <button type="submit">Done</button>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type="submit">Done</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>

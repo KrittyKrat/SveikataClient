@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import classes from "../HomePage.module.css";
 
 const Institution = (props) => {
 
@@ -22,19 +23,19 @@ const Institution = (props) => {
   }
 
   return (
-    <div>
-        <p>{props.id}</p>
-        <h2>{props.name}</h2>
-        <h3>{props.adress}</h3>
-        <p></p>
+    <div className={classes.list}>
+        <div className={classes.second}>
+          <h2>{props.name}</h2>
+          <h3>{props.adress}</h3>
+        </div>
+        <button className={classes.button} onClick={onViewDepartmentsHandler}>View Departments</button>
         {role === "Admin" &&
           <React.Fragment>
-            <button onClick={onEditHandler}>Edit</button>
-            <button onClick={onRemoveHandler}>Remove</button>
+            <button className={classes.button} onClick={onEditHandler}>Edit</button>
+            <button className={classes.button} onClick={onRemoveHandler}>Remove</button>
           </React.Fragment>
         }
-        <button onClick={onViewDepartmentsHandler}>View Departments</button>
-        <br /><br />
+        <br />
     </div>
   )
 }

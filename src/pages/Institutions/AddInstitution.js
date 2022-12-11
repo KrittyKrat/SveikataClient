@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addInstitution } from '../../services/institution.service'
+import classes from "../HomePage.module.css";
 
 const AddInstitution = () => {
 
@@ -29,7 +30,7 @@ const AddInstitution = () => {
 
   return (
     <>
-    <div>
+    <div className={classes.main}>
         <h1>Add Institution</h1>
         <form onSubmit={onSubmitHandler}>
             <div>
@@ -41,8 +42,8 @@ const AddInstitution = () => {
                 <input type="text" id="adress" required />
             </div>
             <div>
-                <button type='submit'>Add</button>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type='submit'>Add</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>

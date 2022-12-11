@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+.main {
+    text-align: center;
+    min-height: 684px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+}

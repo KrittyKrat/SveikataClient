@@ -1,0 +1,115 @@
+.main{
+    margin: 2rem auto;
+    width: 32%;
+    max-width: rem;
+    border-radius: 6px;
+    background-color: #0fcbf3;
+    border: 2px solid #0990ad;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.second{
+    margin: auto;
+    width: 100%;
+    max-width: rem;
+    border-radius: 6px;
+    background-color: #5adbf7;
+    border: 2px solid #7fe3f9;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.list{
+    margin: 2rem auto;
+    width: 32%;
+    max-width: rem;
+    border-radius: 6px;
+    background-color: #0fcbf3;
+    border: 2px solid #0990ad;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 2px solid #0990ad;
+}
+
+.button {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border: 2px solid #0990ad;
+    background-color: #58dbf7;
+    color: black;
+    padding: 0.75rem 2.5rem;
+    border-radius: 10px;
+    transition: color 0.1s linear, background-color 0.1s linear;
+    margin-top:20px;
+    margin-left:2px;
+    margin-right:2px;
+}
+
+.button:hover {
+    background-color: #0990ad;
+    color: white;
+}
+
+label {
+    display: block;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    font: inherit;
+    background-color: #effcfe;
+    color: #000000;
+    border-radius: 4px;
+    border: 1px solid white;
+    width: 100%;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+select {
+    font: inherit;
+    background-color: #effcfe;
+    color: #000000;
+    border-radius: 4px;
+    border: 1px solid white;
+    width: 100%;
+    text-align: left;
+    padding: 0.25rem;
+  }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalcontent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}

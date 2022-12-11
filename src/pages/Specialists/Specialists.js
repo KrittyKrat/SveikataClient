@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getSpecialists } from '../../services/specialist.service';
 import Specialist from './Specialist';
+import classes from "../HomePage.module.css";
 
 const Specialists = () => {
   
@@ -33,8 +34,13 @@ const Specialists = () => {
     return (
         <div>
             {specialists?.map((spec) => <Specialist id={spec._id} key={spec._id} name={spec.name} surname={spec.surname} age={spec.age}/>)}
-            {role === "Admin" && <React.Fragment><button onClick={onAddHandler}>Add specialist</button></React.Fragment>}
-            <button onClick={onBackHandler}>Back</button>
+            <div className={classes.main}>
+                <div className={classes.second}>
+                    <h3>This is it. MAKE YOUR CHOICE...</h3>
+                </div>
+                {role === "Admin" && <React.Fragment><button className={classes.button} onClick={onAddHandler}>Add specialist</button></React.Fragment>}
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
+            </div>
         </div>
     )
 }

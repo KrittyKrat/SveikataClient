@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { getUserVisits } from '../../services/visits.service';
 import Visit from './Visit';
+import classes from "../HomePage.module.css";
 
 const UserVisits = () => {
   
@@ -25,7 +26,12 @@ const UserVisits = () => {
     return (
         <div>
         {visits?.map((vis) => <Visit id={vis._id} key={vis._id} description={vis.description} specialistID={vis.specialistID} userID={vis.userID}/>)}
-        <button onClick={onBackHandler}>Back</button>
+        <div className={classes.main}>
+            <div className={classes.second}>
+                <h3>These are the visits you have!</h3>
+            </div>
+            <button className={classes.button} onClick={onBackHandler}>Back</button>
+        </div>
         </div>
     )
 }

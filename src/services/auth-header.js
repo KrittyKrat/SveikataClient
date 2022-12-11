@@ -3,5 +3,7 @@ export default function authHeader() {
   if (token) {
     return { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
   }
+
+  localStorage.removeItem("user");
   return {};
 }

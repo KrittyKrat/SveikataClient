@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Institution from './Institution';
 import { getInstitutions } from "../../services/institution.service";
 import { useNavigate } from 'react-router-dom';
+import classes from "../HomePage.module.css";
 
 const Institutions = () => {
   
@@ -32,8 +33,13 @@ const Institutions = () => {
   return (
     <div>
       {institutions?.map((inst) => <Institution id={inst._id} key={inst._id} name={inst.name} adress={inst.adress}/>)}
-      {role === "Admin" && <React.Fragment><button onClick={onAddHandler}>Add Institution</button></React.Fragment>}
-      <button onClick={onBackHandler}>Back</button>
+      <div className={classes.main}>
+        <div className={classes.second}>
+          <h3>Look at all of these choices, click one! Or don't, I guess</h3>
+        </div>
+        {role === "Admin" && <React.Fragment><button className={classes.button} onClick={onAddHandler}>Add Institution</button></React.Fragment>}
+        <button className={classes.button} onClick={onBackHandler}>Back</button>
+      </div>
     </div>
   )
 }

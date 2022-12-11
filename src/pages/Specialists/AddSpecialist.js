@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addSpecialist } from '../../services/specialist.service';
+import classes from "../HomePage.module.css";
 
 const AddSpecialist = () => {
 
@@ -32,7 +33,7 @@ const AddSpecialist = () => {
 
   return (
     <>
-    <div>
+    <div className={classes.main}>
         <h1>Add Specialist</h1>
         <form onSubmit={onSubmitHandler}>
             <div>
@@ -48,8 +49,8 @@ const AddSpecialist = () => {
                 <input type="number" id="age" required />
             </div>
             <div>
-                <button type='submit'>Add</button>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type='submit'>Add</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>

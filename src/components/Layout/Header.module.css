@@ -1,0 +1,39 @@
+.header {
+    width: 100%;
+    height: 5rem;
+    background-color: #0fcbf3;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #0990ad;
+    padding: 1rem;
+}
+
+.icon {
+    width: 40px;
+    height: auto;
+    overflow: hidden;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}  
+
+.button {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border: 2px solid #0990ad;
+    background-color: #58dbf7;
+    color: black;
+    padding: 0.75rem 2.5rem;
+    border-radius: 10px;
+    transition: color 0.1s linear, background-color 0.1s linear;
+}
+
+.button:hover {
+    background-color: #0990ad;
+    color: white;
+}

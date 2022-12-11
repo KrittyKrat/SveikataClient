@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { deleteInstitution, getInstitution } from '../../services/institution.service';
+import classes from "../HomePage.module.css";
 
 const RemoveInstitution = (props) => {
 
@@ -36,16 +37,17 @@ const RemoveInstitution = (props) => {
 
   return (
     <>
-    <div>
+    <div className={classes.main}>
         <h1>Remove Institution</h1>
+        <br />
         <form onSubmit={onSubmitHandler}>
-            <h2>{name}</h2>
-            <h3>{adress}</h3>
-            <div>
-                <button type='submit'>Remove</button>
+            <div className={classes.second}>
+                <h2>{name}</h2>
+                <h3>{adress}</h3>
             </div>
             <div>
-                <button onClick={onBackHandler}>Back</button>
+                <button className={classes.button} type='submit'>Remove</button>
+                <button className={classes.button} onClick={onBackHandler}>Back</button>
             </div>
         </form>
     </div>
