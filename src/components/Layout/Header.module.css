@@ -8,8 +8,23 @@
     padding: 1rem;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(0.8, 0.8);
+    }
+
+    50% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+    transform: scale(0.8, 0.8);
+    }
+}
+
 .icon {
-    width: 40px;
+    animation: pulse 10s linear infinite;
+    width: 50px;
     height: auto;
     overflow: hidden;
 }
